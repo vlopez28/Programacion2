@@ -1,7 +1,6 @@
-package Ejercicio1;
+package ejerc1TP7b;
 
 import java.time.LocalDate;
-
 
 public class Link extends ElementoFS {
 
@@ -14,6 +13,7 @@ public class Link extends ElementoFS {
 		super(INICIO + apuntado.getNombre(), tamanio, fechaCreacion);
 		this.apuntado = apuntado;
 	}
+
 	public String getNombre(String nombre) {
 		return INICIO + apuntado.getNombre();
 	}
@@ -33,4 +33,19 @@ public class Link extends ElementoFS {
 		return TAMANIOLINK;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		try {
+			Link otro = (Link)o;
+			return this.getNombre().equals(otro.getNombre());
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public int cantElementos() {
+		return 1;
+	}
 }

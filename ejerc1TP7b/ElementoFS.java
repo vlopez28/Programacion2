@@ -1,4 +1,4 @@
-package Ejercicio1;
+package ejerc1TP7b;
 
 import java.time.LocalDate;
 
@@ -18,6 +18,7 @@ public abstract class  ElementoFS {
 	}
 
 	public abstract double getTamanio();
+	public abstract int cantElementos();
 
 	public LocalDate getFechaCreacion() {
 		return fechaCreacion;
@@ -27,16 +28,21 @@ public abstract class  ElementoFS {
 		this.nombre = nombre;
 	}
 
-	public void setTamanio(double tamanio) {
-		this.tamanio = tamanio;
-	}
-
 	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
 	
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		try {
+			ElementoFS otro = (ElementoFS)o;
+			return this.getNombre().equals(otro.getNombre());
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
 	
 	
 
